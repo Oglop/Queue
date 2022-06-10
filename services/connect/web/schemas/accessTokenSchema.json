@@ -1,0 +1,21 @@
+{
+    "$id": "http://queue-api/schemas/accessToken.json#",
+    "title": "accessToken",
+    "description": "A access token request body",
+    "type": "object",
+    "properties": {
+      "clientId": {
+        "description": "Id of the client",
+        "type": "string"
+      },
+      "clientSecret": {
+        "description": "Secret of the client",
+        "type": "string"
+      },
+      "user": {
+        "description": "User making the request",
+        "type": "string"
+      }
+    },
+    "required": [ "clientId", "clientSecret", "user" ]
+  }

@@ -1,4 +1,4 @@
 module.exports = {
     id: undefined,
-    roomId: undefined
+    queueId: undefined
 }
