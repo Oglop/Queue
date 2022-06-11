@@ -1,20 +1,18 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../../infrastructure/persistance/database')
-class Room extends Model {
 
-}
-
-Room.init({
+class Queue extends Model {}
+Queue.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING
     },
-    name: {
+    roomId: {
         type: DataTypes.STRING
     }
 }, {
     sequelize,
-    modelName: 'room'
+    modelName: 'queue'
 })
 
-module.exports = Room
+module.exports = Queue

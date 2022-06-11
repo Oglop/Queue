@@ -1,12 +1,12 @@
 const { createRoom } = require('../../../infrastructure/inserts/createRoom')
 const { generateId } = require('../../../../../lib')
 
-const addRoomCommand = async (room) => {
+const execute = async (room) => {
     room.id = generateId()
-    const res = await createRoom(room)
-    return res
+    await createRoom(room)
+    return room.id
 }
 
 module.exports = {
-    addRoomCommand
+    execute
 }

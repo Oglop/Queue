@@ -1,1 +1,14 @@
-{}
+{
+    "$id": "http://queue-api/schemas/room.json#",
+    "title": "room",
+    "description": "Room request body",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "name of room",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "required": [ "name" ]
+  }

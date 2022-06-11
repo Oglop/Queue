@@ -1,3 +1,5 @@
 module.exports = {
-    roomSchema: require('./roomSchema.json')
+    v1_0: {
+        roomSchema: require('./v1_0/roomSchema.json'),
+    }
 }
