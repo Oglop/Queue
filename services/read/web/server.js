@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const getQueueByIdRoute = require('./routes/getQueueById')
+const roomRoutes1_0 = require('./routes/v1_0/roomRoutes')
 
 app.use(express.json());
 
-app.use('/queues', getQueueByIdRoute)
+app.use('/rooms', roomRoutes1_0)
 
 const sequelize = require('../infrastructure/persistance/database')
 sequelize.sync().then(() => console.log('read-db ready'))

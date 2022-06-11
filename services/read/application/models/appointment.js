@@ -23,7 +23,7 @@ Appointment.init({
         type: DataTypes.DATE
     },
     status: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
     }
 
 }, {

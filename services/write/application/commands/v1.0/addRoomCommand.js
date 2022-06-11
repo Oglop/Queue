@@ -3,8 +3,11 @@ const { generateId } = require('../../../../../lib')
 
 const execute = async (room) => {
     room.id = generateId()
-    await createRoom(room)
-    return room.id
+    const id = await createRoom(room)
+    return {
+        id,
+        message: 'record was created'
+    }
 }
 
 module.exports = {
