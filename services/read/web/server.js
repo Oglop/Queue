@@ -6,8 +6,7 @@ app.use(express.json());
 
 app.use('/queues', getQueueByIdRoute)
 
-app.get('/', async (req, res) => {
-  res.send('Hello World')
-})
+const sequelize = require('../infrastructure/persistance/database')
+sequelize.sync().then(() => console.log('read-db ready'))
 
 module.exports = app

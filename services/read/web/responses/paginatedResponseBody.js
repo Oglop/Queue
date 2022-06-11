@@ -1,12 +1,12 @@
 module.exports = {
-    _links: {
+    paging: {
         next: '',
         self:''
     },
     limit: 0,
     size: 0,
     start: 0,
-    result: [
+    data: [
 
     ]
 }
