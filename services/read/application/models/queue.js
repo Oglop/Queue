@@ -5,10 +5,17 @@ class Queue extends Model {}
 Queue.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     roomId: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        references: {
+            model: 'room',
+            key: 'id'
+        },
+        allowNull: false
     }
 }, {
     sequelize,

@@ -5,17 +5,25 @@ class RoleUser extends Model {}
 RoleUser.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     userId: {
         type: DataTypes.STRING,
-        references: 'user',
-        referencesKey: 'id'
+        references: {
+            model: 'users',
+            key: 'id'
+        },
+        allowNull: false
     },
     roleId: {
         type: DataTypes.STRING,
-        references: 'role',
-        referencesKey: 'id'
+        references: {
+            model: 'roles',
+            key: 'id'
+        },
+        allowNull: false
     }
 }, {
     sequelize,

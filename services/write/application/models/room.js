@@ -7,7 +7,9 @@ class Room extends Model {
 Room.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     name: {
         type: DataTypes.STRING

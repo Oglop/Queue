@@ -6,28 +6,43 @@ Appointment.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING,
+        references: {
+            model: 'client',
+            key: 'id'
+        },
+        allowNull: false,
+        unique: true
     },
     queueId: {
         type: DataTypes.STRING,
-        references: 'queue',
-        referencesKey: 'id'
+        references: {
+            model: 'queue',
+            key: 'id'
+        },
+        allowNull: false
     },
     userId: {
         type: DataTypes.STRING,
-        references: 'user',
-        referencesKey: 'id'
+        references: {
+            model: 'user',
+            key: 'id'
+        },
+        allowNull: false
     },
     message: {
         type: DataTypes.STRING
     },
     startTime: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        allowNull: false
     },
     stopTime: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        allowNull: false
     },
     status: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 
 }, {

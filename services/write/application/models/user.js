@@ -5,13 +5,21 @@ class User extends Model {}
 User.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     },
     email: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize,

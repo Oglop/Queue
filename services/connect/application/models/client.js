@@ -5,13 +5,17 @@ class Client extends Model {}
 Client.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     secret: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     },
     issuer: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize,

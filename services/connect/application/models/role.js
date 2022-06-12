@@ -5,15 +5,21 @@ class Role extends Model {}
 Role.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     clientId: {
         type: DataTypes.STRING,
-        references: 'client',
-        referencesKey: 'id'
+        references: {
+            model: 'clients',
+            key: 'id'
+        },
+        allowNull: false
     },
     name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize,
