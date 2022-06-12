@@ -1,20 +1,25 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../../infrastructure/persistance/database')
 
-class Queue extends Model {}
-Queue.init({
+class RoleUser extends Model {}
+RoleUser.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING
     },
-    roomId: {
+    userId: {
         type: DataTypes.STRING,
-        references: 'room',
+        references: 'user',
+        referencesKey: 'id'
+    },
+    roleId: {
+        type: DataTypes.STRING,
+        references: 'role',
         referencesKey: 'id'
     }
 }, {
     sequelize,
-    modelName: 'queue'
+    modelName: 'roleUser'
 })
 
-module.exports = Queue
+module.exports = RoleUser

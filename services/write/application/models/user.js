@@ -1,13 +1,16 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../../infrastructure/persistance/database')
 
-class User extends Model { }
+class User extends Model {}
 User.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING
     },
     name: {
+        type: DataTypes.STRING
+    },
+    email: {
         type: DataTypes.STRING
     }
 }, {

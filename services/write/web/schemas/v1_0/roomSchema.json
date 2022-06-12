@@ -4,11 +4,15 @@
     "description": "Room request body",
     "type": "object",
     "properties": {
+      "userId": {
+        "description": "id of user",
+        "type": "string"
+      },
       "name": {
         "description": "name of room",
         "type": "string"
       }
     },
     "additionalProperties": false,
-    "required": [ "name" ]
+    "required": [ "name", "userId" ]
   }

@@ -2,7 +2,7 @@
 
 
 const db = [
-    { 
+    {
         clientId: '12345',
         clientSecret: 'secret',
         audience: ['localhost:8080'],

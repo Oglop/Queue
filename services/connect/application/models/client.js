@@ -1,21 +1,21 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../../infrastructure/persistance/database')
 
-class User extends Model {}
-User.init({
+class Client extends Model {}
+Client.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING
     },
-    name: {
+    secret: {
         type: DataTypes.STRING
     },
-    email: {
+    issuer: {
         type: DataTypes.STRING
     }
 }, {
     sequelize,
-    modelName: 'user'
+    modelName: 'client'
 })
 
-module.exports = User
+module.exports = Client

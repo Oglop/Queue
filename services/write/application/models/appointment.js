@@ -5,13 +5,17 @@ class Appointment extends Model {}
 Appointment.init({
     id: {
         primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
     },
     queueId: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        references: 'queue',
+        referencesKey: 'id'
     },
     userId: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        references: 'user',
+        referencesKey: 'id'
     },
     message: {
         type: DataTypes.STRING

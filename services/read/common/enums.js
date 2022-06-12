@@ -6,7 +6,9 @@ module.exports = {
         WAITING_FOR_CONFIRMATION: 3,
     },
     REQUEST_TYPE: {
-        BOOKING: 0,
-        CANCELATION: 1
+        CREATE_FORCE: 0,
+        CREATE_CONFIRM: 1,
+        CANCEL: 2,
+        UPDATE: 3
     }
 }
