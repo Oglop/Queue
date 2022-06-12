@@ -3,8 +3,11 @@ const { generateId } = require('../../../../../lib')
 
 const execute = async (queue) => {
     queue.id = generateId()
-    await createQueue(queue)
-    return queue.id
+    const id = await createQueue(queue)
+    return {
+        id,
+        message: 'record was created'
+    }
 }
 
 module.exports = {

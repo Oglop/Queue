@@ -6,17 +6,13 @@ Appointment.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING,
-        references: {
-            model: 'client',
-            key: 'id'
-        },
         allowNull: false,
         unique: true
     },
     queueId: {
         type: DataTypes.STRING,
         references: {
-            model: 'queue',
+            model: 'queues',
             key: 'id'
         },
         allowNull: false
@@ -24,7 +20,7 @@ Appointment.init({
     userId: {
         type: DataTypes.STRING,
         references: {
-            model: 'user',
+            model: 'users',
             key: 'id'
         },
         allowNull: false

@@ -12,7 +12,7 @@ Queue.init({
     roomId: {
         type: DataTypes.STRING,
         references: {
-            model: 'room',
+            model: 'rooms',
             key: 'id'
         },
         allowNull: false

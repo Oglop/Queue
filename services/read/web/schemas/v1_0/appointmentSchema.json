@@ -1,0 +1,42 @@
+{
+    "$id": "http://queue-api/schemas/appointment.json#",
+    "title": "appointment",
+    "description": "Appointment request body",
+    "type": "object",
+    "properties": {
+        "queueId": {
+            "description": "Queue appointment is referensing",
+            "type": "string"
+        },
+        "userId": {
+            "description": "Appointment for user",
+            "type": "string"
+        },
+        "startTime": {
+            "description": "Appointment start",
+            "type": "string",
+            "format": "date"
+        },
+        "stopTime": {
+            "description": "Appointment stop",
+            "type": "string",
+            "format": "date"
+        },
+        "status": {
+            "description": "Status of appointment",
+            "type": "integer"
+        },
+        "message": {
+            "description": "Status of appointment",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [ 
+        "queueId",
+        "userId",
+        "startTime", 
+        "stopTime", 
+        "status" 
+    ]
+}
