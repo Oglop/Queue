@@ -7,7 +7,7 @@ const getAccessToken = async (clientId, clientSecret) => {
     const token = jwt.sign({
         aud: id.audience,
         iss: id.issuer,
-        scopes: id.allowedScopes
+        scopes: id.scope
         }, SECRET_KEY, { expiresIn: 60 * 60 });
         return token
 }
