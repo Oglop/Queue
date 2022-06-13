@@ -1,25 +1,29 @@
 const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../../infrastructure/persistance/database')
+const sequelize = require('../database')
 
-class Queue extends Model {}
-Queue.init({
+class Scope extends Model {}
+Scope.init({
     id: {
         primaryKey: true,
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
-    roomId: {
+    clientId: {
         type: DataTypes.STRING,
         references: {
-            model: 'rooms',
+            model: 'clients',
             key: 'id'
         },
+        allowNull: false
+    },
+    name: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 }, {
     sequelize,
-    modelName: 'queue'
+    modelName: 'scope'
 })
 
-module.exports = Queue
+module.exports = Scope

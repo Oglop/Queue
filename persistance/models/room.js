@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../../infrastructure/persistance/database')
+const sequelize = require('../database')
 class Room extends Model {
 
 }

@@ -1,9 +1,7 @@
 
-const Client = require('../../application/models/client')
-const Role = require('../../application/models/role')
-const RoleUser = require('../../application/models/roleUser')
-const Audience = require('../../application/models/audience')
-const Scope = require('../../application/models/scope')
+const Client = require('../../../../persistance/models/client')
+const Audience = require('../../../../persistance/models/audience')
+const Scope = require('../../../../persistance/models/scope')
 
 const getAccessTokenQuery = async (clientId, clientSecret) => {
     try {

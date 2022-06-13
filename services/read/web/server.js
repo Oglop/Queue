@@ -6,7 +6,4 @@ app.use(express.json());
 
 app.use('/rooms', roomRoutes1_0)
 
-const sequelize = require('../infrastructure/persistance/database')
-sequelize.sync().then(() => console.log('read-db ready'))
-
 module.exports = app

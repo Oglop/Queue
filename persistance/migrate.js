@@ -1,11 +1,11 @@
-const sequalize = require('../persistance/database')
-const User = require('../../application/models/user')
-const Client = require('../../application/models/client')
-const Role = require('../../application/models/role')
-const RoleUser = require('../../application/models/roleUser')
-const Scope = require('../../application/models/scope')
-const Audience = require('../../application/models/audience')
-const { generateId } = require('../../../../lib')
+const sequalize = require('./database')
+const User = require('./models/user')
+const Client = require('./models/client')
+const Role = require('./models/role')
+//const RoleUser = require('./models/roleUser')
+const Scope = require('./models/scope')
+const Audience = require('./models/audience')
+const { generateId } = require('../lib')
 const { 
     HOST, 
     CONNECT_PORT, 
@@ -17,7 +17,7 @@ const {
     ADMIN_ROLE_NAME,
     ADMIN_SCOPE
 
-} = require('../../../../config')
+} = require('../config')
 
 const migrate = async () => {
     const userId = generateId()

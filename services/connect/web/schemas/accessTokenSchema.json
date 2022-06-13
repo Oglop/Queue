@@ -12,10 +12,11 @@
         "description": "Secret of the client",
         "type": "string"
       },
-      "user": {
-        "description": "User making the request",
+      "email": {
+        "description": "Email of user",
         "type": "string"
       }
     },
-    "required": [ "clientId", "clientSecret", "user" ]
+    "additionalProperties": false,
+    "required": [ "clientId", "clientSecret", "email" ]
   }

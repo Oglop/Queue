@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../../infrastructure/persistance/database')
+const sequelize = require('../database')
+const Role = require('./role')
 
 class User extends Model {}
 User.init({
@@ -26,4 +27,21 @@ User.init({
     modelName: 'user'
 })
 
+
+
+User.belongsToMany(Role, {
+    through: "roleUser",
+    foreignKey: "userId"
+});
+Role.belongsToMany(User, {
+    through: "roleUser",
+    foreignKey: "roleId"
+});
+
+
+
+
+//User.belongsToMany(Role, {through: 'roleUsers'});
+
+//User.belongsToMany(RoleUser, { through: 'roleUsers', foreignKey: 'roleId' })
 module.exports = User

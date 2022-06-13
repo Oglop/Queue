@@ -1,4 +1,4 @@
-const Room = require('../../application/models/room')
+const Room = require('../../../../persistance/models/room')
 
 const selectRoomById = async (id) => {
     const result = await Room.findByPk(id)

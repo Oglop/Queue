@@ -13,15 +13,18 @@ module.exports = router.post('/', jsonSchemaRequestValidation(accessTokenSchema)
     try {
         const clientId = req.body.clientId
         const clientSecret = req.body.clientSecret
-        const user = req.body.user
+        const email = req.body.email
 
-        const accessToken = await getAccessToken(clientId, clientSecret)
+        const { token, role } = await getAccessToken(clientId, clientSecret, email)
+
         res.status(200).send({
             readUri: `${HOST}:${READ_PORT}`,
             writeUri: `${HOST}:${WRITE_PORT}`,
-            accessToken: accessToken
+            accessToken: token,
+            role
         })
     } catch (e) {
+        console.log(e.message)
         res.status(401).end()
     }
     
