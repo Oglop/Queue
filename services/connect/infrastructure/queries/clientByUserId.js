@@ -17,4 +17,4 @@ const clientByUserId = async (userId) => {
     }
 }
 
-modyle.exports = { clientByUserId }
+module.exports = { clientByUserId }

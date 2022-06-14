@@ -1,4 +1,5 @@
 
 module.exports = {
-    accessTokenSchema: require('./accessTokenSchema.json')
+    accessTokenSchema: require('./accessTokenSchema.json'),
+    refreshTokenSchema: require('./refreshTokenSchema.json')
 }

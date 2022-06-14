@@ -1,4 +1,3 @@
-
 const Client = require('../../../../persistance/models/client')
 const Audience = require('../../../../persistance/models/audience')
 const Scope = require('../../../../persistance/models/scope')
@@ -21,12 +20,11 @@ const getAccessTokenQuery = async (clientId, clientSecret) => {
             })
             const scope = []
             scopeResult.forEach(s => scope.push(s.name))
-            const claims = {
+            return {
                 issuer: client.issuer,
                 audience,
                 scope
             }
-            return claims
         }
 
         throw 'unathorized'

@@ -1,0 +1,18 @@
+{
+    "$id": "http://queue-api/schemas/refreshToken.json#",
+    "title": "accessToken",
+    "description": "A access token request body",
+    "type": "object",
+    "properties": {
+      "accessToken": {
+        "description": "Access token",
+        "type": "string"
+      },
+      "refreshToken": {
+        "description": "Refresh token",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "required": [ "accessToken", "refreshToken" ]
+  }
