@@ -2,7 +2,7 @@ const sequalize = require('./database')
 const User = require('./models/user')
 const Client = require('./models/client')
 const Role = require('./models/role')
-//const RoleUser = require('./models/roleUser')
+const RoleUser = require('./models/roleUser')
 const Scope = require('./models/scope')
 const Audience = require('./models/audience')
 const { generateId } = require('../lib')
@@ -22,12 +22,27 @@ const {
 const migrate = async () => {
     const userId = generateId()
     try {
+
+        const roleId = generateId()
+        await Role.findOrCreate({
+            where: {
+                name: ADMIN_ROLE_NAME
+            },
+            default: {
+                id: roleId,
+                clientId,
+                name: ADMIN_ROLE_NAME
+            }
+        })
+        console.log(`${ADMIN_ROLE_NAME} role was created`)
+
         result = await User.findOrCreate({
             where: {
                 name: ADMIN_USER_NAME
             },
             defaults: {
                 id: userId,
+                roleId: roleId,
                 name: ADMIN_USER_NAME,
                 email: ADMIN_USER_EMAIL,
                 password: ADMIN_USER_PASSWORD
@@ -42,18 +57,11 @@ const migrate = async () => {
                 secret: generateId(),
                 issuer: `${HOST}:${CONNECT_PORT}`
             })
-            const roleId = generateId()
-            await Role.create({
-                id: roleId,
-                clientId,
-                name: ADMIN_ROLE_NAME
-            })
-            console.log(`${ADMIN_ROLE_NAME} role was created`)
-            await RoleUser.create({
-                id: generateId(),
+            
+            /*await RoleUser.create({
                 userId,
                 roleId
-            })
+            })*/
             await Scope.create({
                 id: generateId(),
                 clientId,

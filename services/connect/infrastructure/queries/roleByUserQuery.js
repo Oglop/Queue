@@ -1,22 +1,13 @@
 const User = require('../../../../persistance/models//user')
 const Role = require('../../../../persistance/models/role')
+const RoleUser = require('../../../../persistance/models/role')
 
 
 const getRoleByUserEmail = async (email) => {
-    /*onst result = await User.findAll({
-        include: [{
-            model: Role
-        }]
-        //,        where: { email: email }
-    })*/
+    const user = await User.findAll({where: { email: email }})
+    const role = await Role.findByPk(user.dataValues.roleId)
 
-    const result = await Role.findAll({
-        include: [
-            { model: User, where: { email: email } }
-        ]
-    })
-
-    return result
+    return role
 }
 
 module.exports = { getRoleByUserEmail }

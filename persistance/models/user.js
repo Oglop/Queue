@@ -10,6 +10,10 @@ User.init({
         allowNull: false,
         unique: true
     },
+    roleId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -28,7 +32,7 @@ User.init({
 })
 
 
-
+/*
 User.belongsToMany(Role, {
     through: "roleUser",
     foreignKey: "userId"
@@ -37,7 +41,7 @@ Role.belongsToMany(User, {
     through: "roleUser",
     foreignKey: "roleId"
 });
-
+*/
 
 
 

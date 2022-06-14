@@ -6,7 +6,7 @@ const { migrate } = require('./persistance/migrate')
 const { READ_PORT, WRITE_PORT, CONNECT_PORT } = require('./config')
 
 
-sequelize.sync().then(async () => {//{ force: true }
+sequelize.sync({ force: true }).then(async () => {//{ force: true }
     console.log('queue-db ready')
     await migrate()
     console.log('migration ready')
