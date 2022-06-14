@@ -11,10 +11,10 @@ const { accessTokenSchema } = require('../schemas')
  */
 module.exports = router.post('/', jsonSchemaRequestValidation(accessTokenSchema), async (req, res, next) => {
     try {
-        const clientId = req.body.clientId
-        const clientSecret = req.body.clientSecret
-        const email = req.body.email
 
+        const refreshToken = req.body.refreshToken
+        const accessToken = req.body.accessToken
+/*
         const { accessToken, refreshToken, role, user } = await getAccessToken(clientId, clientSecret, email)
 
         res.status(200).send({
@@ -24,7 +24,7 @@ module.exports = router.post('/', jsonSchemaRequestValidation(accessTokenSchema)
             refreshToken,
             role,
             user
-        })
+        })*/
     } catch (e) {
         console.log(e.message)
         res.status(401).end()
