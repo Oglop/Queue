@@ -13,5 +13,9 @@ module.exports = {
     ADMIN_ROLE_NAME: process.env.ADMIN_ROLE_NAME,
     ADMIN_SCOPE: process.env.ADMIN_SCOPE,
     OWNER_ROLE_NAME: process.env.OWNER_ROLE_NAME,
-    USER_ROLE_NAME: process.env.USER_ROLE_NAME
+    USER_ROLE_NAME: process.env.USER_ROLE_NAME,
+    SCOPES: {
+        ROOM_READ: 'room.read',
+        ROOM_WRITE: 'room.write'
+    }
 }

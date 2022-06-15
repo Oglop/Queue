@@ -3,13 +3,14 @@ const router = express.Router();
 // const { requestLogger } = require('../middleware/requestLogger')
 const { validateAccessToken } = require('../../middleware/validateAccessToken')
 const { validatePagingQueryParams } = require('../../middleware/validatePagingQueryParams')
+const { scopeValidation } = require('../../middleware/scopeValidation')
 const paginatedResponseBody = require('../../responses/paginatedResponseBody')
 const { getRoomQuery } = require('../../../application/queries/v1_0/getRoomQuery')
 const { copyObject } = require('../../../../../lib')
 /**
  * [] should have id
  */
-module.exports = router.get('/:id', validateAccessToken, validatePagingQueryParams, async (req, res, next) => {
+module.exports = router.get('/:id', validateAccessToken, validatePagingQueryParams, scopeValidation(['room.read']), async (req, res, next) => {
     const id = req.params.id
     const body = copyObject(paginatedResponseBody)
     body.start = parseInt(req.query.start) || 0

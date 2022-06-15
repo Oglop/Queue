@@ -7,7 +7,7 @@ const { jsonSchemaRequestValidation } = require('../../middleware/jsonSchemaVali
 const addRoomCommand = require('../../../application/commands/v1.0/addRoomCommand')
 const { roomSchema } = require('../../schemas').v1_0
 
-module.exports = router.post('/', jsonSchemaRequestValidation(roomSchema), validateAccessToken, async (req, res, next) => {
+module.exports = router.post('/', jsonSchemaRequestValidation(roomSchema), validateAccessToken,  async (req, res, next) => {
     const result = await addRoomCommand.execute(req.body)
     const success = copyObject(commandSuccessfulBody)
     success.id = result.id
