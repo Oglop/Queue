@@ -2,7 +2,7 @@ const regex = new RegExp('^[0-9]+$');
 
 const validatePagingQueryParams = (req, res, next) => {
     const messages = []
-    if (req.query.start) {
+    if (req.query.offset) {
         try {
             if (!regex.test(req.query.start)) {
                 throw 'invalid input'

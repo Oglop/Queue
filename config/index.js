@@ -16,6 +16,9 @@ module.exports = {
     USER_ROLE_NAME: process.env.USER_ROLE_NAME,
     SCOPES: {
         ROOM_READ: 'room.read',
-        ROOM_WRITE: 'room.write'
+        ROOM_WRITE: 'room.write',
+        USER_READ: 'user.read',
+        USER_WRITE: 'user.write',
+        USER_INVITE: 'user.invite'
     }
 }
