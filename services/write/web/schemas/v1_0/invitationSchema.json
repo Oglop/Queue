@@ -1,0 +1,18 @@
+{
+    "$id": "http://queue-api/schemas/invite.json#",
+    "title": "user",
+    "description": "Invite request body",
+    "type": "object",
+    "properties": {
+      "email": {
+        "description": "email of user",
+        "type": "string"
+      },
+      "message": {
+        "description": "password of user",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "required": [ "email", "message" ]
+  }
