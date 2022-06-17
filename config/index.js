@@ -5,6 +5,7 @@ module.exports = {
     WRITE_PORT: process.env.WRITE_PORT,
     CONNECT_PORT: process.env.CONNECT_PORT,
     HOST: process.env.HOST,
+    DEFAULT_PAGE_SIZE: process.env.DEFAULT_PAGE_SIZE,
     ACCESS_SECRET_KEY: process.env.ACCESS_SECRET_KEY,
     REFRESH_SECRET_KEY: process.env.REFRESH_SECRET_KEY,
     ADMIN_USER_NAME: process.env.ADMIN_USER_NAME,
