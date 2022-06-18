@@ -1,4 +1,4 @@
-const { queryToUrlQuery, reduceQuery } = require('../../services/read/common/queryParser')
+const { queryToUrlQuery, reduceQuery } = require('../../../services/read/common/queryParser')
 
 describe('queryParser unit tests', () => {
     test('queryToUrlQuery should be instance of function', () => {

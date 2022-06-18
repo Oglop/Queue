@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAccessToken } = require('../../application/business/getAccessToken')
-const { HOST, CONNECT_PORT, READ_PORT, WRITE_PORT } = require('../../../../config')
+const { READ_BASE_URL, WRITE_BASE_URL } = require('../../../../config')
 const { jsonSchemaRequestValidation } = require('../middleware/jsonSchemaValidation')
 const { accessTokenSchema } = require('../schemas')
 
@@ -18,8 +18,8 @@ module.exports = router.post('/', jsonSchemaRequestValidation(accessTokenSchema)
         const { accessToken, refreshToken, role, user } = await getAccessToken(clientId, clientSecret, email)
 
         res.status(200).send({
-            readUri: `${HOST}:${READ_PORT}`,
-            writeUri: `${HOST}:${WRITE_PORT}`,
+            readUri: `${READ_BASE_URL}`,
+            writeUri: `${WRITE_BASE_URL}`,
             accessToken,
             refreshToken,
             role,
