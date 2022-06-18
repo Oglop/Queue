@@ -1,4 +1,9 @@
 
+/**
+ * remover limit and offset keys from query
+ * @param {object} query 
+ * @returns {object} where
+ */
 const reduceQuery = query => {
   const where = []
   for (let key in query) {
@@ -11,6 +16,13 @@ const reduceQuery = query => {
   return where
 }
 
+/**
+ * parse query object to query string
+ * @param {object} query 
+ * @param {number} limit 
+ * @param {number} offset 
+ * @returns {text} query string
+ */
 const queryToUrlQuery = (query, limit, offset) => {
   let queryString = ''
   let addQuestionMarkWhenFirstQuery = true

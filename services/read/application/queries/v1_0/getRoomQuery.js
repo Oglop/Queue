@@ -2,7 +2,10 @@ const { selectRoomById } = require('../../../infrastructure/selects/v1_0/selectR
 
 const getRoomQuery = async (id) => {
     const result = await selectRoomById(id)
-    return result
+    if (result.length) {
+        return result
+    }
+    return []
 }
 
 module.exports = {

@@ -10,5 +10,8 @@ module.exports = {
         CREATE_CONFIRM: 1,
         CANCEL: 2,
         UPDATE: 3
+    },
+    COMMANDS: {
+        CREATE_APPOINTMENT: 'create_appointment'
     }
 }

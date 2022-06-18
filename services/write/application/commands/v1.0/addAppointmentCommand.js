@@ -1,9 +1,8 @@
 const { createAppoitment } = require('../../../infrastructure/inserts/createAppointment')
-const { generateId } = require('../../../../../lib')
 
-const execute = async (appointment) => {
-    appointment.id = generateId()
-    const id = await createAppoitment(appointment)
+const execute = async (appointment, id) => {
+    appointment.id = id
+    await createAppoitment(appointment)
     return {
         id,
         message: 'record was created'

@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const { validateAccessToken } = require('../../middleware/validateAccessToken')
 const { validatePagingQueryParams } = require('../../middleware/validatePagingQueryParams')
 const { scopeValidation } = require('../../middleware/scopeValidation')

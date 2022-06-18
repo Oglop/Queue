@@ -1,10 +1,10 @@
 const { generateId } = require('../../../../../lib')
 
-const addUserCommand = async () => {
+const execute = async () => {
     const userId = generateId()
     
 }
 
 module.exports = {
-    addUserCommand
+    execute
 }

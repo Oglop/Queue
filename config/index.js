@@ -19,6 +19,8 @@ module.exports = {
     OWNER_ROLE_NAME: process.env.OWNER_ROLE_NAME,
     USER_ROLE_NAME: process.env.USER_ROLE_NAME,
     SCOPES: {
+        APPOINTMENT_READ: 'appointment.read',
+        APPOINTMENT_WRITE: 'appointment.write',
         ROOM_READ: 'room.read',
         ROOM_WRITE: 'room.write',
         USER_READ: 'user.read',
