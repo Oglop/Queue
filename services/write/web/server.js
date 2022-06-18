@@ -3,7 +3,6 @@ const roomRoutes1_0= require('./routes/v1_0/roomRoutes')
 const queueRoutes1_0 = require('./routes/v1_0/queueRoutes')
 const userRoutes1_0 = require('./routes/v1_0/userRoutes')
 
-
 const app = express()
 app.use(express.json());
 

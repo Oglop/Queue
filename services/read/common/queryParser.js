@@ -1,28 +1,50 @@
 
-const queryParser = query => {
-    const removeKeys = ['limnit','offset']
-    const value = query.reduce()
-
-    console.log(query)
+const reduceQuery = query => {
+  const where = []
+  for (let key in query) {
+    if(key != 'limit' && key != 'offset'){
+      const o = {}
+      o[key]=query[key]
+      where.push(o)
+    }
+  }
+  return where
 }
 
-module.exports = { queryParser }
+const queryToUrlQuery = (query, limit, offset) => {
+  let queryString = ''
+  let addQuestionMarkWhenFirstQuery = true
+  for (let key in query) {
+    if(key != 'limit' && key != 'offset'){
+      if (addQuestionMarkWhenFirstQuery) {
+        queryString += '?'
+      } else {
+        queryString += '&'
+      }
+      addQuestionMarkWhenFirstQuery = false
+      queryString += `${key}=${query[key]}`
+    }
+  }
 
+  if (limit != undefined) {
+    if ( addQuestionMarkWhenFirstQuery) {
+      queryString += `?limit=${limit}`
+      addQuestionMarkWhenFirstQuery = false
+    } else {
+      queryString += `&limit=${limit}`
+    }
+  }
+  
+  if (offset != undefined) {
+    if (addQuestionMarkWhenFirstQuery) {
+      queryString += `?offset=${offset}`
+      addQuestionMarkWhenFirstQuery = false
+    } else {
+      queryString += `&offset=${offset}`
+    }
+  }
 
+  return queryString
+}
 
-/*
-const removeKey = (k = "", { [k]:_, ...o } = {}) =>
-  o
-
-const removeKeys = (keys = [], o = {}) =>
-  keys .reduce ((r, k) => removeKey (k, r), o)
-
-const values =
-  [ { a: 1, x: 1 }
-  , { a: 1, y: 1 }
-  , { a: 1, z: 1 }
-  ]
-
-console .log (values .map (v => removeKeys (['a', 'z'], v)))
-// [ { x: 1 }, { y: 1 }, {} ]
-*/
+module.exports = { reduceQuery, queryToUrlQuery }

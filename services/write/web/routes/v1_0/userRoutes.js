@@ -5,7 +5,7 @@ const { jsonSchemaRequestValidation } = require('../../middleware/jsonSchemaVali
 const { userSchema } = require('../../schemas')
 const { scopeValidation } = require('../../middleware/scopeValidation')
 const { SCOPES } = require('../../../../../config')
-
+//const {} = require('')
 /**
  * [] should have id
  */

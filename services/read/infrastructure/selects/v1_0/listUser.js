@@ -1,14 +1,13 @@
 const User = require('../../../../../persistance/models/user')
 
 const listUser = async (limit, offset, query) => {
-    const { count, rows } = await User.findAndCountAll({
+    const result = await User.findAndCountAll({
         attributes: ['id', 'roleId', 'name', 'email'],
-        where: {
-            name: args.name
-        },
+        where: query,
         offset,
         limit
     })
+    return result
 }
 
 module.exports = {

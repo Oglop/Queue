@@ -4,12 +4,12 @@ const validatePagingQueryParams = (req, res, next) => {
     const messages = []
     if (req.query.offset) {
         try {
-            if (!regex.test(req.query.start)) {
+            if (!regex.test(req.query.offset)) {
                 throw 'invalid input'
             }
         } catch (e) {
             console.error(e.message)
-            messages.push('start parameter must be an integer')
+            messages.push('offset parameter must be an integer')
         }
     }
     if (req.query.limit) {
