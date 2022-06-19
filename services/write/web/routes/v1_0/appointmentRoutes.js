@@ -20,7 +20,7 @@ eventEmitter.on(CREATE_APPOINTMENT, async (data, id) => {
     })
 })
 
-module.exports = router.post('/',  validateAccessToken, async (req, res, next) => {
+module.exports = router.post('/', jsonSchemaRequestValidation(appointmentSchema),  validateAccessToken, async (req, res, next) => {
     const id = generateId()
     eventEmitter.emit(CREATE_APPOINTMENT, req.body, id)
     const success = copyObject(commandSuccessfulBody)

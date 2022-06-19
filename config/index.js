@@ -25,6 +25,6 @@ module.exports = {
         ROOM_WRITE: 'room.write',
         USER_READ: 'user.read',
         USER_WRITE: 'user.write',
-        USER_INVITE: 'user.invite'
+        USER_INVITE_WRITE: 'user.invite.write'
     }
 }

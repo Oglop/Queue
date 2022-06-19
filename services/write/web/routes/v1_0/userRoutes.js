@@ -5,28 +5,48 @@ const { jsonSchemaRequestValidation } = require('../../middleware/jsonSchemaVali
 const { userSchema } = require('../../schemas')
 const { scopeValidation } = require('../../middleware/scopeValidation')
 const { SCOPES } = require('../../../../../config')
+const { executeCommand } = require('../../../application/commands/commandsHandler')
+const { CREATE_USER, CREATE_INVITATION } = require('../../../common/enums').COMMANDS
+const EventEmitter = require('events')
+const eventEmitter = new EventEmitter()
+
+eventEmitter.on(CREATE_USER, async (data, id) => {
+    await executeCommand({
+        command: CREATE_USER, 
+        data, 
+        id
+    })
+})
+
+eventEmitter.on(CREATE_INVITATION, async (data, id) => {
+    await executeCommand({
+        command: CREATE_INVITATION, 
+        data, 
+        id
+    })
+})
+
+
 //const {} = require('')
 /**
  * [] should have id
  */
 module.exports = router.post('/', jsonSchemaRequestValidation(userSchema), validateAccessToken, scopeValidation([ SCOPES.USER_WRITE ]), async (req, res, next) => {
-    
-
-
-
-    /*const id = req.params.id
-    
-    const result = await getRoomQuery(id)
-    if (result) {
-        body.data.push(result)
-    } else {
-        res.status(204).end()
-        return
-    }
-    body.size = body.data.length
-    res.status(200).json(body);*/
+    const id = generateId()
+    eventEmitter.emit(CREATE_USER, req.body, id)
+    const success = copyObject(commandSuccessfulBody)
+    success.id = id
+    success.message = 'created'
+    success.time = new Date().toISOString()
+    res.status(201).send(success)
 })
 
-module.exports = router.post('/invite', jsonSchemaRequestValidation(userSchema), validateAccessToken, scopeValidation([ SCOPES.USER_INVITE ]), async (req, res, next) => {
-
+module.exports = router.post('/invite', jsonSchemaRequestValidation(userSchema), validateAccessToken, scopeValidation([ SCOPES.USER_INVITE_WRITE ]), async (req, res, next) => {
+    const id = generateId()
+    eventEmitter.emit(CREATE_INVITATION, req.body, id)
+    const success = copyObject(commandSuccessfulBody)
+    success.id = id
+    success.message = 'created'
+    success.time = new Date().toISOString()
+    res.status(201).send(success)
 })

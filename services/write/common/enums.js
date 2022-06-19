@@ -12,6 +12,9 @@ module.exports = {
         UPDATE: 3
     },
     COMMANDS: {
-        CREATE_APPOINTMENT: 'create_appointment'
+        CREATE_APPOINTMENT: 'create_appointment',
+        CREATE_ROOM: 'create_room',
+        CREATE_USER: 'create_user',
+        CREATE_INVITATION: 'create_invitation'
     }
 }
