@@ -4,7 +4,7 @@ const { copyObject } = require('../../../../../lib')
 const commandSuccessfulBody = require('../../responses/commandSuccessfulBody')
 const { validateAccessToken } = require('../../middleware/validateAccessToken')
 const { jsonSchemaRequestValidation } = require('../../middleware/jsonSchemaValidation')
-const addRoomCommand = require('../../../application/commands/v1.0/addRoomCommand')
+const addRoomCommand = require('../../../application/commands/v1_0/addRoomCommand')
 const { roomSchema } = require('../../schemas').v1_0
 
 module.exports = router.post('/', jsonSchemaRequestValidation(roomSchema), validateAccessToken,  async (req, res, next) => {

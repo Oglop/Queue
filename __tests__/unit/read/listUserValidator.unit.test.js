@@ -1,4 +1,4 @@
-const { listUserValidator } = require('../../../services/read/application/validation/listUserValidator')
+const { listUserValidator } = require('../../../services/read/application/validation/v1_0/listUserValidator')
 
 describe('listUserValidator unit test', () => {
     test('listUserValidator should instance of Function', () => {

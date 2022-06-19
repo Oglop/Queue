@@ -1,4 +1,4 @@
-const Queue = require('../../../../persistance/models/queue')
+const Queue = require('../../../../../persistance/models/queue')
 const createQueue = async record => {
     const result = await Queue.create(record)
     return result

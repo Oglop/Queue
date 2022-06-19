@@ -1,4 +1,4 @@
-const { createAppoitment } = require('../../../infrastructure/inserts/createAppointment')
+const { createAppoitment } = require('../../../infrastructure/inserts/v1_0/createAppointment')
 const { debug, error } = require('../../../../../logger')
 const execute = async (appointment, id) => {
     debug(`create appointment id: ${id}.`, __filename, 'execute', 'pre create')

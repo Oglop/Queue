@@ -1,4 +1,4 @@
-const { createRoom } = require('../../../infrastructure/inserts/createRoom')
+const { createRoom } = require('../../../infrastructure/inserts/v1_0/createRoom')
 const { generateId } = require('../../../../../lib')
 
 const execute = async (room) => {
