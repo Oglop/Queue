@@ -12,10 +12,11 @@ module.exports = {
         UPDATE: 3
     },
     COMMANDS: {
-        CREATE_APPOINTMENT_v1_0: 'create_appointment',
-        CREATE_ROOM_v1_0: 'create_room',
-        CREATE_USER_v1_0: 'create_user',
-        CREATE_INVITATION_v1_0: 'create_invitation',
-        CREATE_ROOM_v1_0: 'create_room'
+        CREATE_APPOINTMENT_v1_0: 'create_appointment_v1.0',
+        CREATE_ROOM_v1_0: 'create_room_v1.0',
+        CREATE_USER_v1_0: 'create_user_v1.0',
+        CREATE_INVITATION_v1_0: 'create_invitation_v1.0',
+        CREATE_ROOM_v1_0: 'create_room_v1.0',
+        CREATE_QUEUE_v1_0: 'create_queue_v1.0'
     }
 }

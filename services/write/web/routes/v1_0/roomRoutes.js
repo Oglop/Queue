@@ -24,8 +24,8 @@ module.exports = router.post('/', jsonSchemaRequestValidation(roomSchema), valid
     const id = generateId()
     eventEmitter.emit(CREATE_ROOM_v1_0, req.body, id)
     const success = copyObject(commandSuccessfulBody)
-    success.id = result.id
-    success.message = result.message
+    success.id = id
+    success.message = 'created'
     success.time = new Date().toISOString()
     res.status(201).send(success)
 });

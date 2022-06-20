@@ -18,6 +18,7 @@ module.exports = {
     ADMIN_SCOPE: process.env.ADMIN_SCOPE,
     OWNER_ROLE_NAME: process.env.OWNER_ROLE_NAME,
     USER_ROLE_NAME: process.env.USER_ROLE_NAME,
+    MAX_QUEUES_PER_USER: process.env.MAX_QUEUES_PER_USER,
     SCOPES: {
         APPOINTMENT_READ: 'appointment.read',
         APPOINTMENT_WRITE: 'appointment.write',
@@ -26,6 +27,7 @@ module.exports = {
         USER_READ: 'user.read',
         USER_WRITE: 'user.write',
         USER_INVITE_WRITE: 'user.invite.write',
-        ROLE_READ: 'role.read'
+        ROLE_READ: 'role.read',
+        QUEUE_WRITE: 'queue.write'
     }
 }
