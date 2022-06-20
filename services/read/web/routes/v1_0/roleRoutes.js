@@ -3,6 +3,7 @@ const router = express.Router();
 const { validateAccessToken } = require('../../middleware/validateAccessToken')
 const { validatePagingQueryParams } = require('../../middleware/validatePagingQueryParams')
 const { scopeValidation } = require('../../middleware/scopeValidation')
+const { ROLE_READ } = require('../../../../../config').SCOPES
 const { createPaginatedResponse } = require('../../../common/createPaginatedResponse')
 const { listRoleQuery } = require('../../../application/queries/v1_0/listRoleQuery')
 const { copyObject } = require('../../../../../lib')

@@ -8,11 +8,11 @@ const { SCOPES } = require('../../../../../config')
 const { generateId, copyObject } = require('../../../../../lib')
 const { executeCommand } = require('../../../application/commands/commandsHandler')
 const commandSuccessfulBody = require('../../responses/commandSuccessfulBody')
-const { CREATE_USER, CREATE_INVITATION } = require('../../../common/enums').COMMANDS
+const { CREATE_USER_v1_0, CREATE_INVITATION_v1_0 } = require('../../../common/enums').COMMANDS
 const EventEmitter = require('events')
 const eventEmitter = new EventEmitter()
 
-eventEmitter.on(CREATE_USER, async (data, id) => {
+eventEmitter.on(CREATE_USER_v1_0, async (data, id) => {
     await executeCommand({
         command: CREATE_USER, 
         data, 
@@ -20,7 +20,7 @@ eventEmitter.on(CREATE_USER, async (data, id) => {
     })
 })
 
-eventEmitter.on(CREATE_INVITATION, async (data, id) => {
+eventEmitter.on(CREATE_INVITATION_v1_0, async (data, id) => {
     await executeCommand({
         command: CREATE_INVITATION, 
         data, 
