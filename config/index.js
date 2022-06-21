@@ -28,6 +28,7 @@ module.exports = {
         USER_WRITE: 'user.write',
         USER_INVITE_WRITE: 'user.invite.write',
         ROLE_READ: 'role.read',
-        QUEUE_WRITE: 'queue.write'
+        QUEUE_WRITE: 'queue.write',
+        QUEUE_READ: 'queue.read'
     }
 }

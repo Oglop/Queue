@@ -1,27 +1,22 @@
 const express = require('express');
 const router = express.Router();
-// const { requestLogger } = require('../middleware/requestLogger')
 const { validateAccessToken } = require('../../middleware/validateAccessToken')
 const { validatePagingQueryParams } = require('../../middleware/validatePagingQueryParams')
 const { scopeValidation } = require('../../middleware/scopeValidation')
-const paginatedResponseBody = require('../../responses/paginatedResponseBody')
-const { getRoomQuery } = require('../../../application/queries/v1_0/getRoomQuery')
-const { copyObject } = require('../../../../../lib')
+const { ROOM_READ, QUEUE_READ } = require('../../../../../config').SCOPES
+const { createPaginatedResponse } = require('../../../common/createPaginatedResponse')
+const { listQueuesByRoomIdQuery } = require('../../../application/queries/v1_0/listQueuesByRoomIdQuery')
 /**
  * [] should have id
  */
-module.exports = router.get('/:id', validateAccessToken, validatePagingQueryParams, scopeValidation(['room.read']), async (req, res, next) => {
-    const id = req.params.id
-    const body = copyObject(paginatedResponseBody)
-    body.start = parseInt(req.query.start) || 0
-    body.limit = parseInt(req.query.limit) || 0
-    const result = await getRoomQuery(id)
-    if (result) {
-        body.data.push(result)
+module.exports = router.get('/:id/queues', validateAccessToken, validatePagingQueryParams, scopeValidation([ROOM_READ, QUEUE_READ ]), async (req, res, next) => {
+    const { count, rows } = await listQueuesByRoomIdQuery(req.params.id, req.query.limit, req.query.offset, req.query)
+    if (count > 0) {
+        res.status(200).send(
+            createPaginatedResponse(req.query.offset, req.query.limit, count, rows, req.baseUrl, req.query)
+        );
     } else {
         res.status(204).end()
         return
     }
-    body.size = body.data.length
-    res.status(200).json(body);
-});
+})
