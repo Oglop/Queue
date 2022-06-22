@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { copyObject } = require('../../../../../lib')
+const { copyObject, generateId } = require('../../../../../lib')
 const commandSuccessfulBody = require('../../responses/commandSuccessfulBody')
 const { validateAccessToken } = require('../../middleware/validateAccessToken')
 const { jsonSchemaRequestValidation } = require('../../middleware/jsonSchemaValidation')

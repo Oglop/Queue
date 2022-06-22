@@ -1,4 +1,5 @@
 const { createQueue } = require('../../../infrastructure/inserts/v1_0/createQueue')
+const { debug, error } = require('../../../../../logger')
 
 const execute = async (data, id) => {
     debug(`createQueueCommand id: ${id}.`, __filename, 'execute', 'create')

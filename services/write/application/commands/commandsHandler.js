@@ -5,7 +5,7 @@ const {
     CREATE_ROOM_v1_0,
     CREATE_QUEUE_v1_0
 } = require('../../common/enums').COMMANDS
-const createAppointmentCommandv1_0  = require('./v1_0/addAppointmentCommand')
+const createAppointmentCommandv1_0  = require('./v1_0/createAppointmentCommand')
 const inviteUserCommandv1_0  = require('./v1_0/createInvitationCommand')
 const createUserCommandv1_0  = require('./v1_0/addUserCommand')
 const createRoomCommand1_0 = require('./v1_0/createRoomCommand')
