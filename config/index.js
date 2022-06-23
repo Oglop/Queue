@@ -19,6 +19,7 @@ module.exports = {
     OWNER_ROLE_NAME: process.env.OWNER_ROLE_NAME,
     USER_ROLE_NAME: process.env.USER_ROLE_NAME,
     MAX_QUEUES_PER_USER: process.env.MAX_QUEUES_PER_USER,
+    MAX_USERS_PER_LICENCE: process.env.MAX_USERS_PER_LICENCE,
     SCOPES: {
         APPOINTMENT_READ: 'appointment.read',
         APPOINTMENT_WRITE: 'appointment.write',

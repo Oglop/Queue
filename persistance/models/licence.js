@@ -9,6 +9,15 @@ Licence.init({
         allowNull: false,
         unique: true
     },
+    owner: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        references: {
+            model: 'users',
+            key: 'id'
+        }
+    },
     key: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -26,6 +35,11 @@ Licence.init({
     },
     expiry: {
         type: DataTypes.DATE,
+        allowNull: false,
+        unique: false
+    },
+    maxUsers: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         unique: false
     }

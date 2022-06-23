@@ -1,6 +1,6 @@
 {
     "$id": "http://queue-api/schemas/invite.json#",
-    "title": "user",
+    "title": "invitation",
     "description": "Invite request body",
     "type": "object",
     "properties": {

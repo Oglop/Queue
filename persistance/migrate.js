@@ -50,10 +50,12 @@ const migrate = async () => {
             const licenceId = generateId()
             await Licence.create({
                 id: licenceId,
+                owner: userId,
                 key: generateId({ length: 16, numeric: true }),
                 status: LICENCE_STATUS.ACTIVE,
                 type: LICENCE_TYPE.FULL,
-                expiry: '2099-09-09'
+                expiry: '2099-09-09',
+                maxUsers: 100
             })
             await UserLicence.create({
                 userId,

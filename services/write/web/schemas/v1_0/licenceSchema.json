@@ -1,0 +1,35 @@
+{
+    "$id": "http://queue-api/schemas/licence.json#",
+    "title": "licence",
+    "description": "Licence request body",
+    "type": "object",
+    "properties": {
+      "owner": {
+        "description": "userId of owner",
+        "type": "string"
+      },
+      "key": {
+        "description": "key of licence",
+        "type": "string"
+      },
+      "status": {
+        "description": "status of licence",
+        "type": "integer"
+      },
+      "type": {
+        "description": "type of licence",
+        "type": "integer"
+      },
+      "expiry": {
+        "description": "expiry date",
+        "type": "date"
+      },
+      "maxUser": {
+        "description": "max active users for licence",
+        "type": "integer"
+      }
+    },
+    "additionalProperties": false,
+    "required": [ "owner", "key", "status", "type", "expiry", "maxUser" ]
+  }
+  
