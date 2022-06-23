@@ -3,7 +3,10 @@ const Client = require('./models/client')
 const Role = require('./models/role')
 const Scope = require('./models/scope')
 const Audience = require('./models/audience')
+const Licence = require('./models/licence')
+const UserLicence = require('./models/userLicence')
 const { generateId } = require('../lib')
+const { LICENCE_TYPE, LICENCE_STATUS } = require('../services/connect/common/enums')
 const { 
     HOST, 
     CONNECT_PORT, 
@@ -43,6 +46,18 @@ const migrate = async () => {
                 name: ADMIN_USER_NAME,
                 email: ADMIN_USER_EMAIL,
                 password: ADMIN_USER_PASSWORD
+            })
+            const licenceId = generateId()
+            await Licence.create({
+                id: licenceId,
+                key: generateId({ length: 16, numeric: true }),
+                status: LICENCE_STATUS.ACTIVE,
+                type: LICENCE_TYPE.FULL,
+                expiry: '2099-09-09'
+            })
+            await UserLicence.create({
+                userId,
+                licenceId
             })
             await Scope.create({
                 id: generateId(),
