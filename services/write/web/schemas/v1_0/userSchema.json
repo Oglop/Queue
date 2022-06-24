@@ -19,8 +19,12 @@
       "password": {
         "description": "password of user",
         "type": "string"
+      },
+      "licenceKey": {
+        "description": "licence of user",
+        "type": "string"
       }
     },
     "additionalProperties": false,
-    "required": [ "roleId", "name", "email", "password" ]
+    "required": [ "roleId", "name", "email", "password", "licenceKey" ]
   }

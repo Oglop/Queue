@@ -10,5 +10,16 @@ module.exports = {
         CREATE_CONFIRM: 1,
         CANCEL: 2,
         UPDATE: 3
+    },
+    LICENCE_STATUS: {
+        INACTIVE: 0,
+        ACTIVE: 1,
+        EXPIRED: 2,
+        REJECTED: 3
+    },
+    LICENCE_TYPE: {
+        TRIAL: 0,
+        FULL: 1,
+        INHERITED: 2
     }
 }
